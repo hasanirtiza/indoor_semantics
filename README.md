@@ -4,6 +4,10 @@ You can run it:
 ```shell 
 python main.py --dataset_path /my/folder/rgbd_dataset_freiburg1_room/ 
 ```
+### Installation
+```shell 
+numpy, opencv, pillow, matplotlib, skimage, scipy  
+```
 # Quick notes:
 
 Inherently modular problem, keep it modular. Isolate pipeline, easier to optimize params (given time), debug etc  
@@ -28,5 +32,5 @@ Inherently modular problem, keep it modular. Isolate pipeline, easier to optimiz
 * Keeping it light weight, might want to skip frames and can cause problems.
 
 ### Floorplan
-* Cascaded problem.
+* Cascaded problem, erros flow through.
 * Tedious params tuning.
