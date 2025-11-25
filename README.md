@@ -13,24 +13,24 @@ numpy, opencv, pillow, matplotlib, skimage, scipy
 Inherently modular problem, keep it modular. Isolate pipeline, easier to optimize params (given time), debug etc  
 
 ### Data
-* One to one association required.
+* One-to-one association required.
 * One can also sample at large intervals.
-* Slight motion blue etc for certain frames.
+* Slight motion blur etc. for certain frames.
 * Depth has some issues near borders. Not super accurate, also the units.
 
 ### PnP
 * Classic problem, chaining causes drift.
 * Even a constant velocity model can give fairly reasonable results due to the nature of this set.
 * Temporal filtering or some sort of BA (local or global). 
-* What about something like vggt ? 
+* What about something like VGGT ? 
 
 
 ### Splatting
 * Drift causes splatting quality to drop a bit.
-* Noise depth.
+* Noisy depth.
 * Forced isotropy bubbly structure.
-* Keeping it light weight, might want to skip frames and can cause problems.
+* Keeping it lightweight, might want to skip frames and can cause problems.
 
 ### Floorplan
-* Cascaded problem, erros flow through.
+* Cascaded problem, errors flow through.
 * Tedious params tuning.
