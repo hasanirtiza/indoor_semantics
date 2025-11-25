@@ -1,4 +1,4 @@
-### Running the Code
+# Instructions
 Assuming the sequence is at /my/folder/
 You can run it:
 ```shell 
@@ -42,3 +42,11 @@ Inherently modular problem, keep it modular. Isolate pipeline, easier to optimiz
 
 
 
+
+
+# Credits
+Lots of repos, hard to name all. Non exhaustive list.
+* https://github.com/uoip/rgbd_ptam
+* https://github.com/Gongsta/vSLAM-py/blob/main/main_stereo_slam.py
+* https://github.com/GradientSpaces/LoopSplat/blob/main/src/entities/datasets.py
+* https://github.com/KlrShaK/opencv_contrib/blob/f85e8dfc62ee367c57dc6d348f2c9c5279de0f2e/modules/SimpleSLAM/slam/core/dataloader.py#L46
