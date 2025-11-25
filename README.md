@@ -1,8 +1,13 @@
-# Running the Code
+### Running the Code
 Assuming the sequence is at /my/folder/
 You can run it:
 ```shell 
 python main.py --dataset_path /my/folder/rgbd_dataset_freiburg1_room/ 
+```
+
+Potentially, you can use oracle poses for splatting and floorplan (upper bounds).
+```shell 
+python main.py --dataset_path /my/folder/rgbd_dataset_freiburg1_room/ --use_oracle
 ```
 ### Installation
 ```shell 
@@ -34,3 +39,6 @@ Inherently modular problem, keep it modular. Isolate pipeline, easier to optimiz
 ### Floorplan
 * Cascaded problem, errors flow through.
 * Tedious params tuning.
+
+
+
