@@ -18,6 +18,12 @@ def main():
         default="/home/irtiza/datasets/tum-rgbd/rgbd_dataset_freiburg1_room/",
         help="Path to TUM RGB-D dataset (default: %(default)s)",
     )
+    parser.add_argument(
+        "--use_oracle",
+        action="store_true",
+        help="Use ground truth poses for splatting and floorplan",
+    )
+
 
    
 
@@ -38,6 +44,8 @@ def main():
 
     # Assuming you already have GT trajectory saved as TUM txt in results_dir, which is their by defualt:
     gt_traj_path = os.path.join("./results", "gt_traj.txt")
+    if args.use_oracle:
+        poses = np.loadtxt(gt_traj_path)
 
     stats, gt_pts, est_aligned_pts = full_evaluate_ate(gt_traj_path, traj_path)
     print("\n=== ATE (TUM-style, after SE(3) alignment) ===")
