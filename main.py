@@ -19,17 +19,12 @@ def main():
         help="Path to TUM RGB-D dataset (default: %(default)s)",
     )
 
-    parser.add_argument(
-        "--results_dir",
-        type=str,
-        default="./results",
-        help="Directory to store all results (default: %(default)s)",
-    )
+   
 
     args = parser.parse_args()
 
     dataset_path = args.dataset_path
-    results_dir = args.results_dir
+    results_dir = "./results"
     os.makedirs(results_dir, exist_ok=True)
 
     dataset = TumRGBDDataset(dataset_path)
@@ -41,8 +36,8 @@ def main():
     traj_path = os.path.join(results_dir, "trajectory.txt")
     np.savetxt(traj_path, poses)
 
-    # If you already have GT trajectory saved as TUM txt in results_dir:
-    gt_traj_path = os.path.join(results_dir, "gt_traj.txt")
+    # Assuming you already have GT trajectory saved as TUM txt in results_dir, which is their by defualt:
+    gt_traj_path = os.path.join("./results", "gt_traj.txt")
 
     stats, gt_pts, est_aligned_pts = full_evaluate_ate(gt_traj_path, traj_path)
     print("\n=== ATE (TUM-style, after SE(3) alignment) ===")
