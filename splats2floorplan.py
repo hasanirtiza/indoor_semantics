@@ -40,6 +40,20 @@ def filter_floor_ceiling_height_band(
     filtered_pts = pts[mask]
     return filtered_pts, mask
 
+def filter_xy_percentile(pts, low=1.0, high=99.0):
+    x = pts[:,0]
+    y = pts[:,1]
+
+    x_min = np.percentile(x, low)
+    x_max = np.percentile(x, high)
+    y_min = np.percentile(y, low)
+    y_max = np.percentile(y, high)
+
+    mask = (
+        (x >= x_min) & (x <= x_max) &
+        (y >= y_min) & (y <= y_max)
+    )
+    return pts[mask], mask
 
 def create_occupancy_grid(
     pts_xy,
@@ -313,6 +327,12 @@ def splats2floorplan(splats_json, resolution=0.05, floor_percentile=2.0, out_flo
         floor_percentile=floor_percentile,
         ceil_percentile=ceil_percentile,
         margin=z_margin,
+    )
+  
+    centers_filtered, _ = filter_xy_percentile(
+    centers_filtered,
+    low=0.8,
+    high=97.0
     )
 
     pts_xy = centers_filtered[:, :2]  # (x,y)
